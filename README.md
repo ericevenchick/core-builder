@@ -1,8 +1,8 @@
 # core-builder
 
-core-builder is a tool for building root filesystems based on Ubuntu Core releases.  
-The goal is to make it easy to configure and deploy minimal releases of Ubuntu 
-Core.
+core-builder is a tool for building root filesystems based on Ubuntu Core 
+releases. The goal is to make it easy to configure and deploy minimal releases 
+of Ubuntu Core.
 
 Currently, core-builder only supports ARM targets. It has only been tested on a
 Ubuntu 12.10 host.
@@ -17,15 +17,14 @@ filesystem.
 
 core-builder is invoked using make. The available commands are:
 
-* make packages - install specified packages to the root filesystem
-* make core - set up an ARM Ubuntu Core root filesystem
-* make mount - mount the root filesystem to a directory
-* make unmount - unmount the root filesystem
-* make clean - delete **all** work in progress
+  * make core - make a core filesystem (run this first)"
+  * make packages - install all packages to the rootfs"
+  * make chroot - chroot into rootfs"
+  * make clean - delete ALL work"
 
 The typical use case is to run `make core` to download and configure a rootfs,
-then use `make packages` to install specified packages. You can also run `chroot
-rootfs` as root to chroot into the root filesystem.
+then use `make packages` to install specified packages. You can use `make 
+chroot` to enter the environment.
 
 Currently, all commands must be run as root! This is required to mount the
 filesystem and set up the chroot environment.
@@ -40,7 +39,9 @@ release, packages, etc...) must be done in the Makefile.
   * Hostname
   * Users / sudoers
   * Network
-* Support for building packages from source
+* Support for batch installing deb packages
+* Support for building releases (tarballs, images, etc...)
+* Support for booting in QEMU
 
 ## About
 
