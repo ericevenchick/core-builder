@@ -1,0 +1,10 @@
+# rootfs tarballs
+*.tar.gz
+
+# default mount directory
+rootfs
+
+# filesystems
+*.ext2
+*.ext3
+*.ext4
