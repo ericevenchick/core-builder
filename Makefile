@@ -75,10 +75,6 @@ apt-packages: $(MNT_DIR)
 # extract the core tarball
 # set up resolv.conf with a valid nameserver
 # copy qemu-arm-static to allow binaries to run on a non-arm system
-# chroot into rootfs
-# update apt lists
-# install specified packages
-# leave the environment
 	
 core: | $(ROOTFS_FILE) $(MNT_DIR) $(CORE_TARBALL)
 	@echo "Building base system..."
