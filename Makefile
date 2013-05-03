@@ -38,6 +38,9 @@ WGET ?= wget
 CORE_TARBALL = ubuntu-core-$(UBUNTU_RELEASE)-core-armel.tar.gz
 CORE_TARBALL_URL = http://cdimage.ubuntu.com/ubuntu-core/releases/$(UBUNTU_RELEASE)/release/$(CORE_TARBALL)
 
+# helper to run commands in chroot
+CHROOT_EXEC = $(CHROOT) $(MNT_DIR)
+
 help:
 	@echo "core-builder v$(VERSION)\n"
 	@echo "core-builder is used to build root filesystems based on Ubuntu Core releases."
@@ -64,9 +67,8 @@ packages: apt-packages
 
 apt-packages: $(MNT_DIR)
 	@echo "Installing packages using APT..."
-	$(CHROOT) $(MNT_DIR) 			\
-	$(APT_GET) update; 			\
-	$(APT_GET) -y install $(APT_PACKAGES);	\
+	$(CHROOT_EXEC) $(APT_GET) update
+	$(CHROOT_EXEC) $(APT_GET) -y install $(APT_PACKAGES)
 
 # core
 # set up the core system, using the following steps:
