@@ -1,18 +1,23 @@
 VERSION = 1.0
 
+# if the config.mk file exists, include it. otherwise, use these defaults
+-include config.mk
+
+############################################################
+# Defaults
+############################################################
+
 # UBUNTU_RELEASE: year.month of ubuntu core relase to use
 UBUNTU_RELEASE ?= 11.10
-
 # ROOTFS_DIR: directory to build root filesystem in
 ROOTFS_DIR ?= rootfs
-
 # NAMESERVER: nameserver to populate rootfs with (default is Google's 8.8.8.8)
 NAMESERVER ?= 8.8.8.8
 
-# APT_PACKAGES: a list of APT packages to install to the rootfs
-APT_PACKAGES ?= net-tools
-
+############################################################
 # Binaries
+############################################################
+
 MKDIR ?= mkdir
 DD ?= dd
 MKFS ?= mkfs.ext3
@@ -38,7 +43,6 @@ CHROOT_UP = mount -t proc /proc $(ROOTFS_DIR)/proc; mount -t sysfs /sys $(ROOTFS
 CHROOT_DOWN = umount $(ROOTFS_DIR)/proc/; umount $(ROOTFS_DIR)/sys/; umount $(ROOTFS_DIR)/dev/
 
 # colors
-#
 NO_COLOR = \033[0m
 INFO_COLOR = \033[32;01m
 
