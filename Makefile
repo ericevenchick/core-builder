@@ -108,11 +108,13 @@ core: | $(ROOTFS_DIR) $(CORE_TARBALL)
 	$(ECHO) "nameserver $(NAMESERVER)" > $(ROOTFS_DIR)/etc/resolv.conf
 	@echo "$(INFO_STRING) setting up qemu..."
 	$(CP) $(QEMU_ARM_STATIC) $(ROOTFS_DIR)/usr/bin
+	@echo "$(INFO_STRING) setting the date..."
 	@echo "$(INFO_STRING) done."
 
 # clean
 # clean up
 clean:
+	-$(CHROOT_DOWN)
 	-rm -rf $(ROOTFS_DIR)
 
 .PHONY: clean core packages apt-packages

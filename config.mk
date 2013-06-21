@@ -8,4 +8,4 @@ ROOTFS_DIR ?= rootfs
 NAMESERVER ?= 8.8.8.8
 
 # APT_PACKAGES: a list of APT packages to install to the rootfs
-APT_PACKAGES = net-tools dhcp3-client xinit xterm build-essential pkg-config git-core dropbear python2.7 python-pip python-dev python-pygame xinput xinput-calibrator xrandr
+APT_PACKAGES = net-tools dhcp3-client build-essential pkg-config dropbear xinput xinput-calibrator x11-xserver-utils
