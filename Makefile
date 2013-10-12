@@ -1,5 +1,3 @@
-VERSION = 1.0
-
 # if the config.mk file exists, include it. otherwise, use these defaults
 -include config.mk
 
@@ -30,7 +28,7 @@ CHROOT ?= chroot
 WGET ?= wget
 
 # CORE_TARBALL: tarball containing core filesystem
-CORE_TARBALL = ubuntu-core-$(UBUNTU_RELEASE)-core-armel.tar.gz
+CORE_TARBALL = ubuntu-core-$(UBUNTU_RELEASE)-core-armhf.tar.gz
 CORE_TARBALL_URL = http://cdimage.ubuntu.com/ubuntu-core/releases/$(UBUNTU_RELEASE)/release/$(CORE_TARBALL)
 
 # helper to run commands in chroot
@@ -49,7 +47,7 @@ INFO_COLOR = \033[32;01m
 INFO_STRING = [$(INFO_COLOR)INFO$(NO_COLOR)]
 
 help:
-	@echo "core-builder v$(VERSION)\n"
+	@echo "core-builder"
 	@echo "core-builder is used to build root filesystems based on Ubuntu Core releases."
 	@echo "For more information, see the README file.\n"
 	@echo "Commands:"
